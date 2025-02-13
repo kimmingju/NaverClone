@@ -1,0 +1,596 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+    <title>NAVER(클론)</title>
+    <style>
+        :root {
+         --color_title: #080808;
+        --color_title_rgb: 8, 8, 8;
+        --color_body: #101010;
+        --color_body_rgb: 16, 16, 16;
+        --color_caption1: #404040;
+        --color_caption1_rgb: 64, 64, 64;
+        --color_caption2: #606060;
+        --color_caption2_rgb: 96, 96, 96;
+        --color_caption3: #555558;
+        --color_caption3_rgb: 85, 85, 88;
+        --color_search: #000;
+        --color_search_rgb: 0, 0, 0;
+        --color_border_out: #e3e5e8;
+        --color_border_out_rgb: 227, 229, 232;
+        --color_border_in: #ebebeb;
+        --color_border_in_rgb: 235, 235, 235;
+        --color_border_in_divider: #ebebeb;
+        --color_border_in_divider_rgb: 235, 235, 235;
+        --color_border_in_exception: #ebebeb;
+        --color_border_in_exception_rgb: 235, 235, 235;
+        --color_button_border: #dadcdf;
+        --color_button_border_rgb: 218, 220, 223;
+        --color_dot_divider: #d3d5d7;
+        --color_dot_divider_rgb: 211, 213, 215;
+        --color_block_bg: #fff;
+        --color_block_bg_rgb: 255, 255, 255;
+        --color_board_bg: #f4f6fa;
+        --color_board_bg_rgb: 244, 246, 250;
+        --color_option_bg: #f5f7f8;
+        --color_option_bg_rgb: 245, 247, 248;
+        --color_login_bg: #fafbfb;
+        --color_login_bg_rgb: 250, 251, 251;
+        --color_menu_widget_bg: #fff;
+        --color_menu_widget_bg_rgb: 255, 255, 255;
+        --color_setting_bg: #fff;
+        --color_setting_bg_rgb: 255, 255, 255;
+        --color_button1_bg: #fff;
+        --color_button1_bg_rgb: 255, 255, 255;
+        --color_button2_bg: #fff;
+        --color_button2_bg_rgb: 255, 255, 255;
+        --color_news: #3a67ea;
+        --color_news_rgb: 58, 103, 234;
+        --color_news_econ_stay: #909aab;
+        --color_news_econ_stay_rgb: 144, 154, 171;
+        --color_news_econ_down: #4f67d6;
+        --color_news_econ_down_rgb: 79, 103, 214;
+        --color_live_news_price: #f4361e;
+        --color_live_news_price_rgb: 244, 54, 30;
+        --color_enter: #e538e2;
+        --color_enter_rgb: 229, 56, 226;
+        --color_enter_bg: #f2f1fb;
+        --color_enter_bg_rgb: 242, 241, 251;
+        --color_sports: #1f65ef;
+        --color_sports_rgb: 31, 101, 239;
+        --color_sports_bg: #f4f7fe;
+        --color_sports_bg_rgb: 244, 247, 254;
+        --color_econ: #008f76;
+        --color_econ_rgb: 0, 143, 118;
+        --color_calendar: #eb5b5b;
+        --color_calendar_rgb: 235, 91, 91;
+        --color_dic: #031f5f;
+        --color_dic_rgb: 3, 31, 95;
+        --color_shop: #9858f5;
+        --color_shop_rgb: 152, 88, 245;
+        }
+        html, body{
+            font-size: 10.5px;
+            line-height: 10.5px;
+            font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", "맑은 고딕", helvetica, "Apple SD Gothic Neo", sans-serif;
+            padding: 0;
+            margin: 0;
+            letter-spacing: -0.4px;
+        }
+        form, ul{
+            padding: 0;
+            margin: 0;
+        }
+        #wrap{
+            text-align: center;
+        }
+        #wrap-center{
+            display: inline-block;
+            width: 1280px;
+            background-color: white;
+        }
+        #header{
+            position: relative;
+            text-align: center;
+            height: 52px;
+        }
+        #header-hamburger, #header-naverpay, #header-navertalk, #header-notice, #header-cart{
+            position: absolute;
+            top: 5px;
+            z-index: 1;
+            padding: 8px;
+            display: inline-block;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        #header-hamburger{
+            left: -12px;
+        }
+        #header-hamburger:hover::before, #header-naverpay:hover::before, #header-navertalk:hover::before,#header-notice:hover::before,#header-cart:hover::before{
+            position: absolute;
+            content: '';
+            left: 0px;
+            top: 0px;
+            margin: auto;
+            z-index: 0;
+            width: 48px;
+            height: 48px;
+            background-color: var(--color_option_bg);
+            border-radius: 50%;
+        
+        }
+        #header-hamburger > div{
+            background-position: -311px -166px;
+        }
+
+
+        #header-hamburger > div,#header-naverpay > div,#header-navertalk > div,#header-notice > div,#header-cart > div{
+            position: relative;
+            background-image: url(./sp_main.png);
+            background-size: 452px 436px;
+            background-repeat: no-repeat;
+            width: 32px;
+            height: 32px;
+
+        }
+        .blind {
+            position: absolute;
+            clip: rect(0 0 0 0);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+        }
+
+        #header-naverpay{
+            left: 41px;
+        
+        }
+    
+        #header-naverpay > div{
+            background-position: -248px -260px;
+        }
+
+        #header-navertalk{
+            right: 94px;
+            
+        }
+       
+        #header-navertalk > div{
+            background-position: -99px -316px;
+        }
+
+        #header-notice{
+            right: 42px;
+        }
+       
+        #header-notice > div{
+            background-position: -311px -232px;
+        }
+
+
+        #header-cart{
+            right: -10px;
+        }
+        
+        #header-cart > div{
+            background-position: -33px -316px;
+        }
+
+
+        #main{
+            height: 2000px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="wrap-center">
+            <div id="header">
+                <button id="header-hamburger">
+                    <!--before-->
+                    <div></div>
+                    <span class="blind">확장 영역</span>
+                </button>
+                <button id="header-naverpay">
+                    <!--before-->
+                    <div></div>
+                    <span class="blind">네이버 페이</span>
+                </button>
+                <button id="header-navertalk">
+                    <!--before-->
+                    <div></div>
+                    <span class="blind">네이버 톡</span>
+                </button>
+                <button id="header-notice">
+                    <!--before-->
+                    <div></div>
+                    <span class="blind">알림</span>
+                </button>
+                <button id="header-cart">
+                    <!--before-->
+                    <div></div>
+                    <span class="blind">장바구니</span>
+                </button>
+            </div>
+            <style>
+            
+                #search > form {
+                    display: inline-flex;
+                    width: 708px;
+                    height: 60px;
+                    border: 1px solid #03c75a;
+                    border-radius: 33px;
+                    text-align: left;
+                    box-sizing: border-box;
+                }
+                #search > form:hover{
+                    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .12);
+                }
+                #search-input{
+                    width: 480px;
+                    height: 58px;
+                    padding: 17px 0;
+                    border: none;
+                    outline: none;
+                    font-size: 2rem;
+                    line-height: 24px;
+                    font-weight: 500;
+                    font-family: 'NanumSquare';
+                    
+                }
+                #search-input::placeholder{
+                    color: white;
+                }
+                #search-input:focus::placeholder{
+                    color: #e4e4e4;
+                }
+                
+
+                #search-svg{
+                    display: flex;
+                    width: 67px;
+                    height: 58px;
+                    padding-right: 16px;
+                    padding-left: 27px;
+                    box-sizing: border-box;
+                    align-items: center;
+                    justify-content: center;
+                }
+                #search-svg svg{
+                    width: 24px;
+                    height: 24px;
+                    fill: #03c75a;
+                }
+                #search-right{
+                    display: flex;
+                    flex: 1;
+                    align-items: stretch;
+                    justify-content: flex-end;
+                }
+                #search-keyboard{
+                    width: 34px;
+                    height: 58px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 22px 3px 22px 0;
+                    background: transparent;
+                    border: none;
+                    cursor: pointer;
+                   
+                }
+                #search-keyboard::before {
+                content: "";
+                display: inline-block;
+                background-image: url(https://pm.pstatic.net/resources/asset/sp_main.eae24523.png);
+                background-size: 452px 436px;
+                background-position: -148px -301px;
+                background-repeat: no-repeat;
+                width: 24px;
+                height: 14px;
+                }
+                #search-keyboard:hover::before{
+                    filter: brightness(0.7);
+                }
+                #search-recent{
+                    width: 22px;
+                    height: 58px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: transparent;
+                    border: none;
+                    cursor: pointer;
+                }
+                #search-recent::before {
+                content: "";
+                display: inline-block;
+                background-image: url(https://pm.pstatic.net/resources/asset/sp_main.eae24523.png);
+                background-size: 452px 436px;
+                background-position: -154px -211px;
+                background-repeat: no-repeat;
+                width: 10px;
+                height: 6px;
+                }
+                #search-button{
+                    display: inline-block;
+                    width: 62px;
+                    height: 58px;
+                    padding: 17px 27px 16px 10px;
+                    cursor: pointer;
+                    box-sizing: border-box;
+                }
+                #search-btn{
+                    width: 25px;
+                    height: 25px;
+                    fill: #03c75a;
+                }
+
+            </style>
+            <div id="search">
+                <form action="">
+                    <a id="search-svg" href="#">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.273 12.845 7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727v12.845z"></path></svg>
+                    </a>
+                    <label for="search-input" class="blind" >검색어 입력</label>
+                    <input id="search-input" type="text" placeholder="검색어를 입력해 주세요."/>
+                    <div id="search-right">
+                        <button href="#" id="search-keyboard">
+                            <span class="blind">입력도구</span>
+                        </button>
+                        <button href="#" id="search-recent">
+                            <span class="blind">자동완성/최근검색어펼치기</span>
+                        </button>
+                        <a id="search-button" href="#">
+                            <svg id="search-btn" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" style="fill: #03c75a"> <path d="M22.13.5c11.378 0 20.632 9.256 20.632 20.63 0 4.699-1.566 9.155-4.439 12.782l10.164 10.165a2.41 2.41 0 0 1-1.706 4.115 2.412 2.412 0 0 1-1.706-.705L33.31 35.719a2.41 2.41 0 0 1 0-3.41 15.71 15.71 0 0 0 4.628-11.178c0-8.718-7.09-15.808-15.807-15.808-8.718 0-15.808 7.09-15.808 15.808 0 7.15 4.817 13.43 11.714 15.273a2.41 2.41 0 0 1 1.705 2.954 2.41 2.41 0 0 1-2.95 1.705C7.788 38.658 1.5 30.46 1.5 21.131 1.5 9.756 10.756.5 22.13.5zm4.716 34.746a3.483 3.483 0 1 1 0 6.966 3.483 3.483 0 0 1 0-6.966z"></path> </svg>
+                        </a>
+                    </div>
+                </form>
+            </div>
+            <style>
+                #nav > ul{
+                    display: flex;
+                    list-style: none;
+                    justify-content: center;
+                }
+                #nav a{
+                    text-decoration: none;
+                    text-align: center;
+                }
+                #nav a div{
+                    position: relative;
+                    display: inline-block;
+                }
+                #nav a div::before{
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    top: -1px;
+                    left: -3px;
+                    background-image: url(https://pm.pstatic.net/resources/asset/sp_main.eae24523.png);
+                    background-size: 452px 436px;
+                    background-position: -153px -142px;
+                    background-repeat: no-repeat;
+                    width: 50px;
+                    height: 50px;
+                    z-index: 0;
+                }
+                #nav a div::after{
+                    position: relative;
+                    content: "";
+                    display: inline-block;
+                    background-image: url(https://pm.pstatic.net/resources/asset/sp_main.eae24523.png);
+                    background-size: 452px 436px;
+                    background-repeat: no-repeat;
+                    width: 40px;
+                    height: 40px;
+                    margin: 2px;
+                    z-index: 1;
+                }
+ 
+                #nav a:visited{
+                    color: black;
+                }
+                #nav li{
+                    width: 53.5px;
+                    margin-top: 8px;
+                    display: flex;
+                    justify-content: center;
+                    
+                }
+                
+        
+                #nav li:nth-of-type(1) a div::after{
+                    background-position: -205px -219px;
+                }
+                #nav li:nth-of-type(2) a div::after{
+                    background-position: -41px -219px;
+                }
+                #nav li:nth-of-type(3) a div::after{
+                    background-position: 0px -219px;
+                }
+                #nav li:nth-of-type(4) a div::after{
+                    background-position: -41px -260px;
+                }
+                #nav li:nth-of-type(5) a div::after{
+                    background-position: -270px -205px;
+                }
+                #nav li:nth-of-type(6) a div::after{
+                    background-position: -123px -260px;
+                }
+                #nav li:nth-of-type(7) a div::after{
+                    background-position: 0px -260px;
+                }
+                #nav li:nth-of-type(8) a div::after{
+                    background-position: -270px 0px;
+                }
+                #nav li:nth-of-type(9) a div::after{
+                    background-position: -164px -260px;
+                }
+                #nav li:nth-of-type(10) a div::after{
+                    content: "";
+                    position: relative;
+                    background-image: url(https://s.pstatic.net/static/www/mobile/edit/20250108_1095/upload_1736323678794GFyXm.png
+                    );
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    width: 40px;
+                    height: 40px;
+                    margin: 2px;
+                }
+                #nav li:nth-of-type(11) a div::after{
+                    background-position: -270px -164px;
+                }
+                #nav li:nth-of-type(12){
+                    margin-left: 22px;
+                }
+                #nav li:nth-of-type(12) a div::after{
+                    content: "";
+                    position: relative;
+                    background-image: url(	https://ssl.pstatic.net/melona/libs/1516/1516545/132559dd61e13c9ac9bb_20241128134948065_6.jpg);
+                    mask-image: url(data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M35.8916%204.05844C34.4994%202.6636%2032.7598%201.66622%2030.8527%201.16957C29.6805%200.675129%2026.2138%20-0.0109778%2019.9694%200.000133254C13.725%200.0112443%2010.2473%200.708462%209.08618%201.2029C5.21209%202.23714%202.19023%205.2696%201.16957%209.14729C0.675129%2010.3195%20-0.0109778%2013.8306%200.000133254%2020.0333C0.0112443%2026.2361%200.708462%2029.7555%201.20568%2030.9138C2.23787%2034.7881%205.26978%2037.8105%209.14729%2038.8304C10.3195%2039.3249%2013.7139%2040.011%2020.0333%2039.9999C26.3527%2039.9888%2029.7555%2039.2943%2030.9138%2038.7971C34.7879%2037.7629%2037.8098%2034.7304%2038.8304%2030.8527C39.3249%2029.6805%2040.011%2026.1555%2039.9999%2019.9667C39.9888%2013.7778%2039.2943%2010.2445%2038.7971%209.08618C38.2933%207.18157%2037.2902%205.44593%2035.8916%204.05844V4.05844Z%22%20fill%3D%22white%22%2F%3E%3C%2Fsvg%3E);
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    width: 40px;
+                    height: 40px;
+
+                }
+                #nav li:nth-of-type(12)::before{
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    top: 134px;
+                    width: 1px;
+                    right: 421px;
+                    height: 20px;
+                    background-color: rgba(227, 229, 232, .8);
+                }
+                #nav li a span{
+                    display: inline-block;
+                    margin-top: 4px;
+                    font-size: 1.3rem;
+                    line-height: 20px;
+                    text-align: center;
+                    margin-top: 4px;
+                }
+                #ad{
+                    margin-left: -25px;
+                    margin-right: -25px;
+                }
+                
+            </style>
+            <nav id="nav">
+                <ul>
+                    <li>
+                        <a href="">
+                            <div></div>
+                            <span>메일</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                            <span>카페</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                            <span>블로그</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                            <span>스토어</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                            <span>뉴스</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                            <span>증권</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                            <span>부동산</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                            <span>지도</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                            <span>웹툰</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                            <span>메모</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div></div>
+                            <span class="blind">더보기</span>
+                        </a>
+                    </li>
+                    <li>
+                       <a>
+                            <div>
+
+                            </div>
+                            <span id="ad">서울디지털대학</span>
+                        </a>
+                
+                    </li>
+                
+                </ul>
+            </nav>
+            <style>
+                #main{
+                    display: flex;
+                }
+                #main-left{
+                    width: 830px;
+                    margin-right: 30px;
+                }
+                #main-right{
+                    width: 420px;
+                }
+            </style>
+            <main id="main">
+                <div id="main-left">
+                    <aside></aside>
+                    <section id="main-newstand"></section>
+                    <section id="main-shopping"></section>
+                </div>
+                <div id="main-right">
+                    <section id="main-login"></section>
+                    <section id="main-right-ad"></section>
+                    <section id="main-weather"></section>
+                    <section id="main-stock"></section>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
