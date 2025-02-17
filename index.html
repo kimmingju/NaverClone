@@ -471,6 +471,9 @@
                     height: 20px;
                     background-color: rgba(227, 229, 232, .8);
                 }
+                #nav li:nth-of-type(12):hover{
+                    cursor: pointer;
+                }
                 #nav li a span{
                     display: inline-block;
                     margin-top: 4px;
@@ -555,9 +558,7 @@
                     </li>
                     <li>
                        <a>
-                            <div>
-
-                            </div>
+                            <div></div>
                             <span id="ad">서울디지털대학</span>
                         </a>
                 
@@ -568,6 +569,7 @@
             <style>
                 #main{
                     display: flex;
+                    margin-top: 27px;
                 }
                 #main-left{
                     width: 830px;
@@ -576,18 +578,736 @@
                 #main-right{
                     width: 420px;
                 }
+                aside[id$=ad]{
+                    background-color: rgb(212, 212, 212);
+                    border-radius: 8px;
+                    margin-bottom: 16px;
+                }
+                #main-left-ad{
+                    height: 130px;
+                    margin-bottom: 16px;
+                    background-image: url(https://ssl.pstatic.net/melona/libs/1523/1523001/583cd2dc26c9d9a0668c_20250214171319647.jpg);
+                    background-size: 830px 130px;
+                    border-radius: 8px;
+                }
+                section[id^=main]{
+                    box-shadow: 0 0 0 1px #e3e5e8, 0 1px 2px 0 rgba(0, 0, 0, .04);
+                    border-radius: 8px;
+                    margin-bottom: 16px;
+                }
+                
+                #main-login{
+                    height: 164px;
+                    margin-bottom: 16px;
+                    padding: 21px 20px 18px;
+                    font-size: 1.4rem;
+                    display: flex;
+                    flex-direction: column;
+                    box-sizing: border-box;
+                }
+        
+                #main-login > div:first-of-type{
+                    line-height: 20px;
+                }
+                #main-login > div:last-of-type{
+                    font-size: 1.3rem;
+                    display: flex;
+                    justify-content: center;
+                }
+                 #main-login > div:last-of-type a{
+                    text-decoration: none;
+                    color: var(--color_caption2);
+                    letter-spacing: -0.4px;
+                }
+                #main-login > div:last-of-type a:first-of-type,#main-login > div:last-of-type a:last-of-type{
+                    position: relative;
+                    top: 5.5px;
+                } 
+                 #main-login > div:last-of-type a:hover{
+                    text-decoration: underline;
+                } 
+            
+                #main-login > div:last-of-type > a:nth-of-type(2)::before,  #main-login > div:last-of-type > a:nth-of-type(2)::after{
+                    content: "";
+                    display: inline-block;
+                    width: 1px;
+                    height: 12px;
+                    background-color: #d3d5d7;
+                    background-color: var(--color_dot_divider);
+                    margin: 4px 12px 0;
+                }
+                #main-login-button{
+                    margin-top: 13px;
+                    padding: 17px 0;
+                    border: 1px solid rgba(0, 0, 0, .06);
+                    border-radius: 4px;
+                    background-color: #03c75a;
+                    box-shadow: 0 2px 4px 0 rgba(3, 199, 90, .12);
+                    text-decoration: none;
+                    color: #fff;
+                    height: 56px;
+                    box-sizing: border-box;
+                    margin-bottom: 16px;
+                }
+
+                #main-login-button i{
+                    background-image: url(https://pm.pstatic.net/resources/asset/sp_main.eae24523.png);
+                    background-size: 452px 436px;
+                    background-position: 0px -301px;
+                    background-repeat: no-repeat;
+                    width: 72px;
+                    height: 14px;
+                    display: inline-block;
+                    margin: 3px 8px 0 0;
+                    vertical-align: -1px;
+                }
+                #main-right-1ad{
+                    height: 240px;
+                    background-image: url(https://ssl.pstatic.net/melona/libs/1525/1525904/de30174252bc853ce03a_20250207142857738.jpg);
+                    background-size: 420px 240px; 
+                    border-radius: 8px;
+                }
+                #main-right-2ad{
+                    height: 80px;
+                    background-image: url(https://s.pstatic.net/static/www/mobile/edit/20250210_1095/upload_1739183366087rtrVE.png);
+                    background-size: 420px 80px ;
+                    border-radius: 8px;
+                }
+                #main-right-3ad{
+                    height: 172px;
+                }
+                #main-weather, #main-stock{
+                    padding: 0 18px;
+                }
+                .main-weather-and-stock > header{
+                    display: flex;
+                    height: 52px;
+                    padding: 6px 0;
+                    box-sizing: border-box;
+                    align-items: center;
+                    justify-content: left;
+                    font-size: 1.4rem;
+                    font-weight: 500;
+                }
+                .main-weather-and-stock > div{
+                    border-top: 1px solid  var(--color_border_in);
+                }
+                #main-weather{
+                    height: 236px;
+                }
+                
+                #main-stock{
+                    height: 236px;
+                }
+                .left-section header{
+                    font-size: 1.6rem;
+                    color: rgba(8, 8, 8, .5);
+                    display: flex;
+                    justify-content: flex-start;
+                    line-height: 23px;
+                    
+                }
+                #main-newstand header{
+                    margin-bottom: 17px;
+                }
+                .left-section header .bold{
+                    font-weight: bold;
+                    color: black;
+                }
+                .left-section{
+                    height: 426px;
+                    display: flex;
+                    flex-flow: column;
+                }
+                #main-shopping-top{
+                    display: flex;
+                }
+                #main-newstand-top,#main-shopping-top{
+                    flex: 1;
+                    padding: 19.5px 20px 16px;
+                    line-height: 23px;  
+                }
+                #main-newstand-top .dot, #main-newstand-top .slash,#main-shopping-top .slash{
+                    color: rgba(8, 8, 8, .5);
+                    font-weight: 800;
+                }
+                #main-newstand-top .dot::before{
+                    content: "";
+                    display: inline-block;
+                    width: 4px;
+                    height: 4px;
+                    background-color: #d3d5d7;
+                    background-color: var(--color_dot_divider);
+                    margin: 9px 7px 0;
+                    border-radius: 50%;
+                    vertical-align: 4px;
+                }
+                #main-newstand-top .slash,#main-shopping-top .slash{
+                    position: relative;
+                    padding-left: 26px;
+                }
+                #main-newstand-top .slash::before,#main-shopping-top .slash::before{
+                    content: "";
+                    display: inline-block;
+                    position: absolute;
+                    top: 4px;
+                    left: 13px;
+                    width: 1px;
+                    height: 15px;
+                    background-color: #d3d5d7;
+                    background-color: var(--color_dot_divider);
+                    transform: skewX(-15deg);
+                }
+                #main-newstand-animation{
+                    padding-left: 25px;
+                    position: relative;
+                    display: flex;
+                }
+                #main-newstand-animation::before{
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    top: 7px;
+                    left: 12px;
+                    background-color: #d3d5d7;
+                    background-color: var(--color_dot_divider);
+                    width: 1px;
+                    height: 12px;
+                }
+                #main-newstand-animation a:first-of-type{
+                    vertical-align: top;
+                }
+                #main-newstand-animation a:first-of-type::after{
+                    content: "";
+                    display: inline-block;
+                    width: 3px;
+                    height: 3px;
+                    background-color: #d3d5d7;
+                    background-color: var(--color_dot_divider);
+                    margin: 12px 6px 0 6px;
+                    border-radius: 50%;
+                    vertical-align: top;
+                }
+                #main-newstand-animation a:last-of-type{
+                    text-overflow: ellipsis;
+                    width: 400px;
+                    white-space: nowrap;
+                    display: inline-block;
+                    overflow: hidden;
+                }
+                .left-section a{
+                    text-decoration: none;
+                }
+                .left-section a:visited{
+                    text-decoration: none;
+                    color: inherit;
+                }
+                .left-section a:hover{
+                    text-decoration: underline;
+                }
+                #main-newstand-grid {
+                    display:grid;
+                    justify-content: center;
+                    align-items: center;
+                    width: 790px;
+                    height: 223.33px;
+                    grid-template-rows:repeat(4,1fr);
+                    grid-template-columns: repeat(6,1fr);
+                    border: 1px solid var(--color_border_in);
+                    border-radius: 4px;
+                    margin-top: 18px;
+                    grid-gap: 1px;
+                    background-color: var(--color_border_in);
+                }
+                #main-newstand-grid > div{
+                    height: 100%;
+                    background-color: white;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                #main-newstand-grid > div:hover{
+                    background-color: #3a67ea;
+                    color: white;
+                }
+
+                #main-newstand-gray{
+                    display: flex;
+                    justify-content: flex-start;
+                    height: 50px;
+                    padding: 12px 20px;
+                    background-color: var(--color_option_bg);
+                    border-radius: 4px;
+                    box-sizing: border-box;
+                    font-size: 1.4rem;
+                    line-height: 26px;
+                }
+                #main-newstand-gray .right{
+                    display: flex;
+                }
+                #main-newstand-gray .bold{
+                    position: relative;
+                    font-weight: bold;
+                    padding-left: 25px;
+                }
+                #main-newstand-gray .bold::before{
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    top: 7px;
+                    left: 12px;
+                    width: 1px;
+                    height: 12px;
+                    background-color: #d3d5d7;
+                    background-color: var(--color_dot_divider);
+                }
+                #main-newstand-gray .left{
+                    flex: 1;
+                    display: flex;
+                }
+                #main-newstand-gray .left > a:first-of-type{
+                    width: 85.5px;
+                }
+                #main-newstand-gray .left > a:first-of-type::after{
+                    content: "";
+                    background-image: url(https://pm.pstatic.net/resources/asset/sp_main.eae24523.png);
+                    background-size: 452px 436px;
+                    background-position: -175px -211px;
+                    background-repeat: no-repeat;
+                    width: 9px;
+                    height: 6px;
+                    display: inline-block;
+                    margin: 10px 0 0 5px;
+                    vertical-align:3px;
+                }
+                .left-section footer{
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    border-top: 1px solid var(--color_border_in);
+                    color: var(--color_caption2);
+                    padding: 10px 0 11px;
+                    font-size: 1.3rem;
+                    line-height: 35px;
+                    font-weight: 600;
+                }
+                .left-section footer .hot{
+                    color: #9858f5;
+                }
+                .left-section footer .news{
+                    color: var(--color_news);
+                }
+                .left-section footer .list, .left-section footer .grid{
+                    position: absolute;
+                    border: none;
+                    cursor: pointer;
+                    top: 0;
+                    background-color: transparent;
+                } 
+                .left-section footer .list{
+                    right: 49px;
+                    padding: 18px 9px 18px 20px ;
+                }
+                .left-section footer .list::before{
+                    content: "";
+                    display: inline-block;
+                    background-image: url(https://pm.pstatic.net/resources/asset/sp_main.eae24523.png);
+                    background-size: 452px 436px;
+                    background-position: -227px -376px;
+                    background-repeat: no-repeat;
+                    width: 20px;
+                    height: 20px;
+                }
+                .left-section footer .list:hover::before{
+                    background-position: -206px -376px;
+                }
+                .left-section footer .grid{
+                    right: 0;
+                    padding: 18px 20px 18px 9px;
+                }
+                .left-section footer .grid::before{
+                    content: "";
+                    display: inline-block;
+                    background-image: url(https://pm.pstatic.net/resources/asset/sp_main.eae24523.png);
+                    background-size: 452px 436px;
+                    background-position: -432px -21px;
+                    background-repeat: no-repeat;
+                    width: 20px;
+                    height: 20px;
+                }
+                .left-section footer .grid:hover::before{
+                    background-position: -432px 0px;
+                }
+                .left-section footer .total{
+                    color: rgba(96, 96, 96, .5);
+                }
+                .left-section footer .prev, .left-section footer .next{
+                    width: 36px;
+                    height: 36px;
+                    border: 1px solid #dadcdf;
+                    border: 1px solid var(--color_button_border);
+                    background-color: #fff;
+                    background-color: var(--color_button1_bg);
+                    position: relative;
+                    display: inline-block;
+                    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .06);
+                    border-radius: 50%;
+                    cursor: pointer;
+                }
+                .left-section footer .text{
+                    padding: 0px 16px;
+                    width: 156px;
+                    box-sizing: border-box;
+                }
+                .left-section footer .next::before,  .left-section footer .prev::before{
+                    content: "";
+                    position: absolute;
+                    display: block;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background-image: url(https://pm.pstatic.net/resources/asset/sp_main.eae24523.png);
+                    background-size: 452px 436px;
+                    background-position: -193px -424px;
+                    background-repeat: no-repeat;
+                    width: 10px;
+                    height: 12px;
+                    margin: auto;
+                }
+                .left-section footer .prev::before{
+                    transform: rotate(180deg);
+                }
+                #main-shopping{
+                    height: 560px;
+                    display: flex;
+                    flex-flow: column;
+                    position: relative;
+                }
+                #main-shopping footer .text{
+                    width: 176px;
+                }
+                #main-shopping footer .hot{
+                    color: #9858f5;
+                }
+                #main-shoppng-gray{
+                    display: flex;
+                    background-color: var(--color_option_bg);
+                }
+                #shopping-right{
+                    position: absolute;
+                    top: 4px;
+                    right: 20px;
+                    margin-left: auto;
+                    padding: 10px 0;
+                    display: flex;
+                }
+                #shopping-right .prev, #shopping-right .next{
+                    width: 30px;
+                    height: 30px;
+                    position: relative;
+                    display: inline-block;
+                    border: 1px solid rgba(211, 213, 215, .8);
+                    vertical-align: top;
+                    cursor: pointer;
+                    border-radius: 4px 0 0 4px;
+                    padding: 0;
+                    background-color: white;
+                }
+                #shopping-right .next{
+                    border-right: 0;
+                    transform: rotate(180deg);
+                }
+                #shopping-right .prev::before,#shopping-right .next::before{
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 5px;
+                    height: 5px;
+                    transform: translate(-50%, -50%) rotate(45deg);
+                    margin-left: 1px;
+                    border-left: 2px solid #80868c;
+                    border-bottom: 2px solid #80868c;
+                }
+                #shopping-right .next::before{
+                    margin-left: -1px;
+                }
+                #num{
+                    color: #71717199;;
+                    display: inline-block;
+                    margin: 6px 9px 8px 0;
+                    font-size: 1.3rem;
+                    line-height: 16px;
+                    font-weight: 600;
+                    
+                }
+                #one{
+                    color: var(--color_caption2);
+                    display: inline-block;
+                    margin: 6px 0px 8px 0;
+                    font-size: 1.3rem;
+                    line-height: 16px;
+                    font-weight: 600;
+                }
+                #main-shopping-grid{
+                    display: grid;
+                    grid-auto-flow: column;
+                    grid-template-rows: 88px 70px 172px;
+                    grid-template-columns: 248px 1fr 1fr 1fr 1fr 1fr;
+                    padding: 0 20px 1px;
+                    column-gap: 9px;
+                    row-gap: 14px;
+                    margin-bottom: 17px;
+                    
+                }
+                .item:nth-child(4),.item:nth-child(6),.item:nth-child(8),.item:nth-child(10),.item:nth-child(12){
+                    grid-row: 1/3;
+                }
+                
+                .item:nth-child(1),.item:nth-child(2),.item:nth-child(3)>div:first-child{
+                    border: 1px solid rgba(0, 0, 0, .05);
+                    border-radius: 4px;
+                    padding: 9px;
+                    background: rgba(245, 248, 251, .6);
+                }
+                
+                #main-shopping-gray{
+                    display: flex;
+                    width: inherit;
+                    height: 50px;
+                    padding: 15px 20px 14px;
+                    border-radius: 4px;
+                    background-color: var(--color_option_bg);
+                    box-sizing: border-box;
+                    line-height: 21px;
+                    margin: 0 20px 18px;
+                }
+                #main-shopping-grid .item{
+                    line-height: 20px;
+                    font-size: 1.3rem;
+                    line-height: 19px;
+                    letter-spacing: -.4px;
+                }
+                #main-shopping-grid .item > .image{
+                    width: 98px;
+                    height: 126px;
+                    border-radius: 4px;
+                    background: rgba(245, 248, 251, .6);
+                    margin-bottom: 8px;
+                }
+                #main-shopping-grid .item > .text{
+                    text-align: left;
+                }
+                #main-shopping-grid .item:nth-child(3) > div:first-child{
+                    width: 248px;
+                    height: 146px;
+                    background-image: url(https://s.pstatic.net/shopping.phinf/20250214_4/34233f5b-996f-47e6-a6dd-731c8ef7eb2b.jpg);
+                    background-size: 248px 146px;
+                    background-repeat: no-repeat;
+                    padding: 0;
+                }
+                .item:nth-child(3)>div:last-child{
+                    height: 19px;
+                    margin-top: 8px;
+                    font-size: 1.3rem;
+                    line-height: 19px;
+                    text-align: center;
+                }
+                #main-shopping-gray > a,#main-shopping-animation{
+                    position: relative;
+                    display: flex;
+                    justify-content: flex-start;
+                    padding-right: 19px;
+                    font-weight: 700;
+                    font-size: 1.4rem;
+                    line-height: 21px;
+                }
+                #main-shopping-gray > a::after{
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    top: 8px;
+                    left: 85px;
+                    width: 3px;
+                    height: 3px;
+                    background-color: #d3d5d7;
+                    background-color: var(--color_dot_divider);
+                    border-radius: 50%;
+                }
+                #main-shopping-animation{
+                    display: inline-block;
+                    color: var(--color_caption1);
+                    font-weight: 500;
+                }
             </style>
             <main id="main">
                 <div id="main-left">
-                    <aside></aside>
-                    <section id="main-newstand"></section>
-                    <section id="main-shopping"></section>
+                    <aside id="main-left-ad"></aside>
+                    <section id="main-newstand" class="left-section">
+                    <div id="main-newstand-top">
+                        <header>
+                            <a href="#" class="bold">뉴스스탠드</a>
+                            <a href="#" class="dot">언론사편집</a>
+                            <a href="#" class="slash">엔터</a>
+                            <a href="#" class="slash">스포츠</a>
+                            <a href="#" class="slash">경제</a>
+                        </header>
+                        <div id="main-newstand-gray">
+                            <div class="left">
+                                <a href="#">전체언론사</a>
+                                <div id="main-newstand-animation">
+                                    <a href="#">연합뉴스</a>
+                                    <a href="#">요즘 최애는 스타벅스 딸기초코생크림케이크인데 아아랑 먹으면 한 판도 먹을 수 있을 것 같다</a>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <a href="#">뉴스스탠드</a>
+                                <a href="#" class="bold">뉴스홈</a>
+                            </div>
+                        </div>
+                        <div id="main-newstand-grid">
+                            <div>언론사</div>
+                            <div>언론사</div>
+                            <div>언론사</div>
+                            <div>언론사</div>
+                            <div>언론사</div>
+                            <div>언론사</div>
+                            <div>언론사</div>
+                            <div>언론사</div>
+                            <div>언론사</div>
+                            <div>언론사</div>
+                            <div>언론사</div>
+                            <div>언론사</div>
+                            <div>언론사</div>
+                            <div>언론사</div>
+                            <div>언론사</div>
+                            <div>언론사</div>
+                            <div>언론사</div>
+                            <div>언론사</div>
+                            <div>언론사</div>
+                            <div>언론사</div>
+                            <div>언론사</div>
+                            <div>언론사</div>
+                            <div>언론사</div>
+                            <div>언론사</div>
+                        </div>
+                    </div>
+                        <footer>
+                            <button class="prev"><span class="blind">이전 페이지</span></button>
+                            <div class="text"><span class="news">언론사</span> 더보기 1<span class="total">/4</span></div>
+                            <button class="next"><span class="blind">다음 페이지</span></button>
+                            <button class="list"><span class="blind">목록보기</span></button>
+                            <button class="grid"><span class="blind">격자보기</span></button>
+                        </footer>
+                    </section>
+                    <section id="main-shopping" class="left-section">
+                        <div>
+                            <header>
+                                <div id="main-shopping-top">
+                                    <a href="#" class="bold">쇼핑</a>
+                                    <a href="#" class="slash">맨즈</a>
+                                    <a href="#" class="slash">원쁠딜</a>
+                                    <a href="#" class="slash">쇼핑라이브</a>
+                                </div>
+                                <div id="shopping-right">
+                                    <span id="one">1</span><span id="num">/25</span>
+                                    <button class="prev"><span class="blind">이전 페이지</span></button><button class="next"><span class="blind">다음 페이지</span></button>
+                                </div>
+                            </header>
+                            <div id="main-shopping-grid">
+                               <div class="item"></div>
+                               <div class="item"></div>
+                               <div class="item" >
+                                <div id="third-ad"></div>
+                                <div>뭉침 ZERO! 집에서 프리미엄 경락을</div>
+                               </div>
+                               <div class="item">
+                                <div class="image"></div>
+                                <div class="text">42도 온찜질로
+                                    눈기름샘 줄줄~</div>
+                               </div>
+                               <div class="item">
+                                <div class="image"></div>
+                                <div class="text">툭~걸쳐도 BEST
+                                    봄신상 빅세일!</div>
+                               </div>
+                               <div class="item">
+                                <div class="image"></div>
+                                <div class="text">에스콰이아 BAG
+                                    봄신상 SALE!</div>
+                               </div>
+                               <div class="item">
+                                <div class="image"></div>
+                                <div class="text">가볍게 뿌렸더니
+                                    번호 물어보더라</div>
+                               </div>
+                               <div class="item">
+                                <div class="image"></div>
+                                <div class="text">독보적인 예쁨!
+                                    38% 인생가디건</div>
+                               </div>
+                               <div class="item">
+                                <div class="image"></div>
+                                <div class="text">향긋한 봄신상
+                                    얼리버드 10%↓</div>
+                               </div>
+                               <div class="item">
+                                <div class="image"></div>
+                                <div class="text">칼로 리바이크
+                                    여기서 반값할인</div>
+                               </div>
+                               <div class="item">
+                                <div class="image"></div>
+                                <div class="text">봄 BEST 코디!
+                                    퀄리티 완벽해</div>
+                               </div>
+                               <div class="item">
+                                <div class="image"></div>
+                                <div class="text">우리집 댕댕이도
+                                    여기서만 자~</div>
+                               </div>
+                               <div class="item">
+                                <div class="image"></div>
+                                <div class="text">개운함은 그대로
+                                    자연 푸룬100%!</div>
+                               </div>
+                            </div>
+                            <div id="main-shopping-gray">
+                                <a href="#" class="bold">오늘의 혜택</a>
+                                <div id="main-shopping-animation">
+                                    <a href="#">요즘 최애는 스타벅스 딸기초코생크림케이크인데 아아랑 먹으면 한 판도 먹을 수 있을 것 같다</a>
+                                </div>
+                            </div>
+                        </div>
+                            <footer>
+                                <button class="prev"><span class="blind">이전 페이지</span></button>
+                                <div class="text"><span class="hot">쇼핑아이템</span> 더보기 1<span class="total">/26</span></div>
+                                <button class="next"><span class="blind">다음 페이지</span></button>
+                            </footer>
+                    </section>
                 </div>
                 <div id="main-right">
-                    <section id="main-login"></section>
-                    <section id="main-right-ad"></section>
-                    <section id="main-weather"></section>
-                    <section id="main-stock"></section>
+                    <section id="main-login">
+                        <div>네이버를 더 안전하고 편리하게 이용하세요</div>
+                        <a href="#" id="main-login-button"><i></i>로그인</a>
+                        <div>
+                            <a href="#">아이디 찾기</a>
+                            <a href="#">비밀번호 찾기</a>
+                            <a href="#">회원가입</a>
+                        </div>
+                    </section>
+                    <aside id="main-right-1ad"></aside>
+                    <aside id="main-right-2ad"></aside>
+                    <aside id="main-right-3ad"></aside>
+                    <section id="main-weather" class="main-weather-and-stock">
+                        <header>날씨</header>
+                        <div></div>
+                    </section>
+                    <section id="main-stock" class="main-weather-and-stock">
+                        <header>증시</header>
+                        <div></div>
+                    </section>
                 </div>
             </main>
         </div>
